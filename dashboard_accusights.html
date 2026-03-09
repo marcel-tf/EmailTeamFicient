@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AccuSights Email Campaign Performance Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .filters-section {
+            background: #f8f9fa;
+            padding: 25px 40px;
+            border-bottom: 2px solid #e9ecef;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-group select {
+            padding: 10px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .filter-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .filter-group select:hover {
+            border-color: #667eea;
+        }
+
+        .clear-filters-btn {
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 20px;
+        }
+
+        .clear-filters-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .dashboard-content {
+            padding: 40px;
+        }
+
+        .kpi-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .kpi-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .kpi-card.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .kpi-card.success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+        }
+
+        .kpi-card.warning {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .kpi-card.info {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .kpi-label {
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .kpi-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .kpi-subtitle {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .charts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .chart-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .chart-card h3 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 768px) {
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-content {
+                padding: 20px;
+            }
+
+            .filters-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Email Campaign Performance Dashboard</h1>
+            <p>AccuSights Campaign Analytics | February - March 2026</p>
+        </header>
+
+        <div class="filters-section">
+            <div class="filter-group">
+                <label for="campaignFilter">Campaign</label>
+                <select id="campaignFilter">
+                    <option value="">All Campaigns</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="dateFilter">Date</label>
+                <select id="dateFilter">
+                    <option value="">All Dates</option>
+                </select>
+            </div>
+            <button class="clear-filters-btn" onclick="clearFilters()">Clear Filters</button>
+        </div>
+
+        <div class="dashboard-content">
+            <div class="kpi-section">
+                <div class="kpi-card primary">
+                    <div class="kpi-label">Total Leads</div>
+                    <div class="kpi-value" id="totalLeads">0</div>
+                    <div class="kpi-subtitle">Generated across campaigns</div>
+                </div>
+
+                <div class="kpi-card success">
+                    <div class="kpi-label">Avg Open Rate</div>
+                    <div class="kpi-value" id="avgOpenRate">0%</div>
+                    <div class="kpi-subtitle">Campaign engagement</div>
+                </div>
+
+                <div class="kpi-card warning">
+                    <div class="kpi-label">Total Replied</div>
+                    <div class="kpi-value" id="totalReplied">0</div>
+                    <div class="kpi-subtitle">Customer responses</div>
+                </div>
+
+                <div class="kpi-card info">
+                    <div class="kpi-label">Total Clicked</div>
+                    <div class="kpi-value" id="totalClicked">0</div>
+                    <div class="kpi-subtitle">Link interactions</div>
+                </div>
+            </div>
+
+            <div class="charts-section">
+                <div class="chart-card full-width">
+                    <h3>Performance Over Time</h3>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Leads by Industry</h3>
+                    <div class="chart-container">
+                        <canvas id="industryChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Engagement Metrics</h3>
+                    <div class="chart-container">
+                        <canvas id="engagementChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Embedded data from Excel
+        const allData = [
+            {"date": "2026-02-05", "industry": "MSP", "campaign": "UAE - MSP", "country": "UAE", "leads": 511, "opened": 210, "clicked": 0, "replied": 2, "delivered": 511, "openRate": 0.411},
+            {"date": "2026-02-11", "industry": "MSP", "campaign": "UAE - MSP", "country": "UAE", "leads": 148, "opened": 31, "clicked": 0, "replied": 0, "delivered": 148, "openRate": 0.2095},
+            {"date": "2026-02-12", "industry": "MSP", "campaign": "UAE - MSP", "country": "UAE", "leads": 213, "opened": 44, "clicked": 0, "replied": 0, "delivered": 209, "openRate": 0.2066},
+            {"date": "2026-02-18", "industry": "MSP", "campaign": "UAE - MSP", "country": "UAE", "leads": 117, "opened": 23, "clicked": 0, "replied": 0, "delivered": 103, "openRate": 0.1966},
+            {"date": "2026-02-20", "industry": "Dental Clinics", "campaign": "US - Dental Clinics", "country": "US", "leads": 182, "opened": 29, "clicked": 0, "replied": 0, "delivered": 166, "openRate": 0.1593},
+            {"date": "2026-02-20", "industry": "Hospitals", "campaign": "Saudi Arabia - Hospitals", "country": "Saudi Arabia", "leads": 144, "opened": 41, "clicked": 0, "replied": 0, "delivered": 136, "openRate": 0.2847},
+            {"date": "2026-02-24", "industry": "MSP", "campaign": "UAE - MSP", "country": "UAE", "leads": 150, "opened": 34, "clicked": 0, "replied": 1, "delivered": 140, "openRate": 0.2267},
+            {"date": "2026-02-25", "industry": "Hospitals", "campaign": "Saudi Arabia - Hospitals", "country": "Saudi Arabia", "leads": 150, "opened": 26, "clicked": 0, "replied": 0, "delivered": 143, "openRate": 0.1733},
+            {"date": "2026-02-26", "industry": "MSP", "campaign": "UAE - MSP", "country": "UAE", "leads": 150, "opened": 27, "clicked": 0, "replied": 1, "delivered": 147, "openRate": 0.18},
+            {"date": "2026-02-26", "industry": "Dental Clinics", "campaign": "US - Dental Clinics", "country": "US", "leads": 140, "opened": 26, "clicked": 0, "replied": 0, "delivered": 138, "openRate": 0.1857},
+            {"date": "2026-03-02", "industry": "MSP", "campaign": "UAE - MSP", "country": "UAE", "leads": 126, "opened": 17, "clicked": 0, "replied": 0, "delivered": 123, "openRate": 0.1349},
+            {"date": "2026-03-02", "industry": "Hospitals", "campaign": "Saudi Arabia - Hospitals", "country": "Saudi Arabia", "leads": 88, "opened": 16, "clicked": 0, "replied": 1, "delivered": 86, "openRate": 0.1818}
+        ];
+
+        let charts = {
+            performance: null,
+            industry: null,
+            engagement: null
+        };
+
+        // Initialize filters
+        function initializeFilters() {
+            const campaigns = [...new Set(allData.map(d => d.campaign))];
+            const dates = [...new Set(allData.map(d => d.date))].sort();
+
+            const campaignFilter = document.getElementById('campaignFilter');
+            const dateFilter = document.getElementById('dateFilter');
+
+            campaigns.forEach(campaign => {
+                const option = document.createElement('option');
+                option.value = campaign;
+                option.textContent = campaign;
+                campaignFilter.appendChild(option);
+            });
+
+            dates.forEach(date => {
+                const option = document.createElement('option');
+                option.value = date;
+                option.textContent = new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                dateFilter.appendChild(option);
+            });
+
+            campaignFilter.addEventListener('change', updateDashboard);
+            dateFilter.addEventListener('change', updateDashboard);
+        }
+
+        // Clear filters
+        function clearFilters() {
+            document.getElementById('campaignFilter').value = '';
+            document.getElementById('dateFilter').value = '';
+            updateDashboard();
+        }
+
+        // Get filtered data
+        function getFilteredData() {
+            const campaignFilter = document.getElementById('campaignFilter').value;
+            const dateFilter = document.getElementById('dateFilter').value;
+
+            return allData.filter(item => {
+                const matchesCampaign = !campaignFilter || item.campaign === campaignFilter;
+                const matchesDate = !dateFilter || item.date === dateFilter;
+                return matchesCampaign && matchesDate;
+            });
+        }
+
+        // Update dashboard
+        function updateDashboard() {
+            const data = getFilteredData();
+
+            // Calculate KPIs
+            const totalLeads = data.reduce((sum, row) => sum + row.leads, 0);
+            const avgOpenRate = data.length > 0 ? (data.reduce((sum, row) => sum + row.openRate, 0) / data.length * 100).toFixed(1) : 0;
+            const totalReplied = data.reduce((sum, row) => sum + row.replied, 0);
+            const totalClicked = data.reduce((sum, row) => sum + row.clicked, 0);
+
+            document.getElementById('totalLeads').textContent = totalLeads;
+            document.getElementById('avgOpenRate').textContent = avgOpenRate + '%';
+            document.getElementById('totalReplied').textContent = totalReplied;
+            document.getElementById('totalClicked').textContent = totalClicked;
+
+            // Update charts
+            updatePerformanceChart(data);
+            updateIndustryChart(data);
+            updateEngagementChart(data);
+        }
+
+        // Performance Over Time Chart
+        function updatePerformanceChart(data) {
+            const dates = [...new Set(data.map(d => d.date))].sort();
+            const dateData = dates.map(date => {
+                const dayData = data.filter(d => d.date === date);
+                return {
+                    date,
+                    leads: dayData.reduce((sum, d) => sum + d.leads, 0),
+                    opened: dayData.reduce((sum, d) => sum + d.opened, 0),
+                    clicked: dayData.reduce((sum, d) => sum + d.clicked, 0)
+                };
+            });
+
+            const ctx = document.getElementById('performanceChart');
+
+            if (charts.performance) {
+                charts.performance.destroy();
+            }
+
+            charts.performance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dateData.map(d => new Date(d.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })),
+                    datasets: [
+                        {
+                            label: 'Leads Generated',
+                            data: dateData.map(d => d.leads),
+                            borderColor: '#667eea',
+                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Emails Opened',
+                            data: dateData.map(d => d.opened),
+                            borderColor: '#38ef7d',
+                            backgroundColor: 'rgba(56, 239, 125, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Links Clicked',
+                            data: dateData.map(d => d.clicked),
+                            borderColor: '#f5576c',
+                            backgroundColor: 'rgba(245, 87, 108, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Industry Chart
+        function updateIndustryChart(data) {
+            const industries = {};
+            data.forEach(row => {
+                industries[row.industry] = (industries[row.industry] || 0) + row.leads;
+            });
+
+            const ctx = document.getElementById('industryChart');
+
+            if (charts.industry) {
+                charts.industry.destroy();
+            }
+
+            charts.industry = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(industries),
+                    datasets: [{
+                        data: Object.values(industries),
+                        backgroundColor: [
+                            '#667eea',
+                            '#38ef7d',
+                            '#f5576c'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        }
+                    }
+                }
+            });
+        }
+
+        // Engagement Chart
+        function updateEngagementChart(data) {
+            const totalOpened = data.reduce((sum, row) => sum + row.opened, 0);
+            const totalClicked = data.reduce((sum, row) => sum + row.clicked, 0);
+            const totalReplied = data.reduce((sum, row) => sum + row.replied, 0);
+            const totalDelivered = data.reduce((sum, row) => sum + row.delivered, 0);
+
+            const ctx = document.getElementById('engagementChart');
+
+            if (charts.engagement) {
+                charts.engagement.destroy();
+            }
+
+            charts.engagement = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Opened', 'Replied', 'Clicked'],
+                    datasets: [{
+                        label: 'Count',
+                        data: [totalOpened, totalReplied, totalClicked],
+                        backgroundColor: [
+                            '#38ef7d',
+                            '#4facfe',
+                            '#f5576c'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                afterLabel: function(context) {
+                                    if (totalDelivered > 0) {
+                                        const percentage = ((context.parsed.y / totalDelivered) * 100).toFixed(2);
+                                        return percentage + '% of delivered';
+                                    }
+                                    return '';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize on page load
+        initializeFilters();
+        updateDashboard();
+    </script>
+</body>
+</html>
