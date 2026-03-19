@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #003B5C 0%, #001F3F 100%);
             padding: 20px;
             min-height: 100vh;
         }
@@ -29,7 +29,7 @@
         }
 
         header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background: linear-gradient(135deg, #2D2926 0%, #1a1918 100%);
             color: white;
             padding: 30px 40px;
             text-align: center;
@@ -84,17 +84,17 @@
 
         .filter-group select:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #FDB913;
         }
 
         .filter-group select:hover {
-            border-color: #667eea;
+            border-color: #FDB913;
         }
 
         .clear-filters-btn {
             padding: 10px 25px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #FDB913 0%, #e5a610 100%);
+            color: #2D2926;
             border: none;
             border-radius: 8px;
             font-size: 14px;
@@ -106,7 +106,7 @@
 
         .clear-filters-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 12px rgba(253, 185, 19, 0.4);
         }
 
         .dashboard-content {
@@ -133,22 +133,22 @@
         }
 
         .kpi-card.primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #003B5C 0%, #002844 100%);
             color: white;
         }
 
         .kpi-card.success {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            color: white;
+            background: linear-gradient(135deg, #FDB913 0%, #e5a610 100%);
+            color: #2D2926;
         }
 
         .kpi-card.warning {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #2D2926 0%, #1a1918 100%);
             color: white;
         }
 
         .kpi-card.info {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            background: linear-gradient(135deg, #003B5C 0%, #005580 100%);
             color: white;
         }
 
@@ -243,8 +243,8 @@
         }
 
         .modal-header {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
+            background: linear-gradient(135deg, #FDB913 0%, #e5a610 100%);
+            color: #2D2926;
             padding: 25px 30px;
             border-radius: 12px 12px 0 0;
             display: flex;
@@ -259,9 +259,9 @@
         }
 
         .close-btn {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(45, 41, 38, 0.2);
             border: none;
-            color: white;
+            color: #2D2926;
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
@@ -275,7 +275,7 @@
         }
 
         .close-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(45, 41, 38, 0.3);
         }
 
         .modal-body {
@@ -303,19 +303,19 @@
         }
 
         .stat-item.negative {
-            border-left-color: #e74c3c;
+            border-left-color: #2D2926;
         }
 
         .stat-item.interested {
-            border-left-color: #3498db;
+            border-left-color: #003B5C;
         }
 
         .stat-item.hot-lead {
-            border-left-color: #2ecc71;
+            border-left-color: #FDB913;
         }
 
         .stat-item.neutral {
-            border-left-color: #95a5a6;
+            border-left-color: #6b6560;
         }
 
         .stat-label {
@@ -399,7 +399,7 @@
                     <div class="kpi-subtitle">Campaign engagement</div>
                 </div>
 
-                <div class="kpi-card warning clickable" onclick="openRepliesModal()">
+                <div class="kpi-card warning clickable" onclick="window.location.href='replies.html'">
                     <div class="kpi-label">Total Replied</div>
                     <div class="kpi-value" id="totalReplied">0</div>
                     <div class="kpi-subtitle">Customer responses (Click for details)</div>
@@ -471,18 +471,20 @@
     </div>
 
     <script>
-        // Embedded data from Excel - Last updated: 2026-03-13
+        // Embedded data from Excel - Last updated: 2026-03-19
         const allData = [
-            {"date": "2026-02-24", "industry": "Driving", "campaign": "Past Leads - Driving Schools", "leads": 49, "opened": 17, "clicked": 0, "replied": 0, "delivered": 43, "openRate": 0.3469},
-            {"date": "2026-02-24", "industry": "Healthcare", "campaign": "Past Leads - Healthcare", "leads": 9, "opened": 1, "clicked": 0, "replied": 0, "delivered": 8, "openRate": 0.1111},
+            {"date": "2026-02-24", "industry": "Driving", "campaign": "Past Leads - Driving Schools", "leads": 49, "opened": 17, "clicked": 0, "replied": 0, "delivered": 43, "openRate": 0.3953},
+            {"date": "2026-02-24", "industry": "Healthcare", "campaign": "Past Leads - Healthcare", "leads": 9, "opened": 1, "clicked": 0, "replied": 0, "delivered": 8, "openRate": 0.125},
             {"date": "2026-02-24", "industry": "General", "campaign": "Past Leads - General", "leads": 71, "opened": 45, "clicked": 2, "replied": 6, "delivered": 71, "openRate": 0.6338},
             {"date": "2026-02-25", "industry": "Driving", "campaign": "Past Leads - Driving Schools", "leads": 6, "opened": 1, "clicked": 0, "replied": 0, "delivered": 6, "openRate": 0.1667},
             {"date": "2026-02-25", "industry": "Healthcare", "campaign": "Past Leads - Healthcare", "leads": 3, "opened": 1, "clicked": 0, "replied": 0, "delivered": 3, "openRate": 0.3333},
-            {"date": "2026-02-25", "industry": "General", "campaign": "Past Leads - General", "leads": 19, "opened": 12, "clicked": 3, "replied": 0, "delivered": 18, "openRate": 0.6316},
+            {"date": "2026-02-25", "industry": "General", "campaign": "Past Leads - General", "leads": 19, "opened": 12, "clicked": 3, "replied": 0, "delivered": 18, "openRate": 0.6667},
             {"date": "2026-02-27", "industry": "Driving", "campaign": "Past Leads - Driving Schools", "leads": 81, "opened": 28, "clicked": 0, "replied": 2, "delivered": 81, "openRate": 0.3457},
             {"date": "2026-02-27", "industry": "Healthcare", "campaign": "Past Leads - Healthcare", "leads": 29, "opened": 13, "clicked": 2, "replied": 0, "delivered": 29, "openRate": 0.4483},
             {"date": "2026-02-27", "industry": "General", "campaign": "Past Leads - General", "leads": 211, "opened": 107, "clicked": 6, "replied": 0, "delivered": 211, "openRate": 0.5071},
-            {"date": "2026-03-11", "industry": "Driving School", "campaign": "NEW Leads - Driving School", "leads": 153, "opened": 69, "clicked": 6, "replied": 0, "delivered": 139, "openRate": 0.6635}
+            {"date": "2026-03-11", "industry": "Driving School", "campaign": "NEW Leads - Driving School", "leads": 153, "opened": 207, "clicked": 28, "replied": 5, "delivered": 391, "openRate": 0.5294},
+            {"date": "2026-03-19", "industry": "General Services", "campaign": "NEW Leads - General", "leads": 200, "opened": 113, "clicked": 68, "replied": 0, "delivered": 173, "openRate": 0.6532},
+            {"date": "2026-03-20", "industry": "General Services", "campaign": "NEW Leads - General", "leads": 200, "opened": 63, "clicked": 19, "replied": 0, "delivered": 168, "openRate": 0.375}
         ];
 
         let charts = {
@@ -525,10 +527,10 @@
                     datasets: [{
                         data: [2, 3, 1, 2],
                         backgroundColor: [
-                            '#e74c3c',
-                            '#3498db',
-                            '#2ecc71',
-                            '#95a5a6'
+                            '#2D2926',
+                            '#003B5C',
+                            '#FDB913',
+                            '#6b6560'
                         ],
                         borderWidth: 0
                     }]
@@ -655,24 +657,24 @@
                         {
                             label: 'Leads Generated',
                             data: dateData.map(d => d.leads),
-                            borderColor: '#667eea',
-                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                            borderColor: '#3B82F6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
                             tension: 0.4,
                             fill: true
                         },
                         {
                             label: 'Emails Opened',
                             data: dateData.map(d => d.opened),
-                            borderColor: '#38ef7d',
-                            backgroundColor: 'rgba(56, 239, 125, 0.1)',
+                            borderColor: '#10B981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
                             tension: 0.4,
                             fill: true
                         },
                         {
                             label: 'Links Clicked',
                             data: dateData.map(d => d.clicked),
-                            borderColor: '#f5576c',
-                            backgroundColor: 'rgba(245, 87, 108, 0.1)',
+                            borderColor: '#F43F5E',
+                            backgroundColor: 'rgba(244, 63, 94, 0.1)',
                             tension: 0.4,
                             fill: true
                         }
@@ -710,6 +712,19 @@
                     }
                 }
 
+                // Diferenciar entre Past General y General New Leads
+                if (row.industry === 'General' && row.campaign) {
+                    if (row.campaign.includes('Past')) {
+                        label = 'Past General';
+                    }
+                }
+
+                if (row.industry === 'General Services' && row.campaign) {
+                    if (row.campaign.includes('NEW')) {
+                        label = 'General New Leads';
+                    }
+                }
+
                 industries[label] = (industries[label] || 0) + row.leads;
             });
 
@@ -726,10 +741,11 @@
                     datasets: [{
                         data: Object.values(industries),
                         backgroundColor: [
-                            '#667eea',  // Azul para Driving Past Leads
-                            '#ff6b9d',  // Rosa para Driving New Leads
-                            '#38ef7d',  // Verde para Healthcare
-                            '#f5576c'   // Rojo para General
+                            '#3B82F6',  // Azul brillante para Driving Past Leads
+                            '#FDB913',  // Amarillo dorado para Driving New Leads
+                            '#F43F5E',  // Rosa/rojo para Healthcare
+                            '#10B981',  // Verde esmeralda para General
+                            '#8B5CF6'   // Púrpura para General Services
                         ]
                     }]
                 },
@@ -766,9 +782,9 @@
                         label: 'Count',
                         data: [totalOpened, totalReplied, totalClicked],
                         backgroundColor: [
-                            '#38ef7d',
-                            '#4facfe',
-                            '#f5576c'
+                            '#10B981',  // Verde para Opened
+                            '#3B82F6',  // Azul para Replied
+                            '#F43F5E'   // Rosa/rojo para Clicked
                         ]
                     }]
                 },
