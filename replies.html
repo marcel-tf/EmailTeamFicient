@@ -92,7 +92,7 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px;
         }
 
@@ -117,6 +117,30 @@
 
         .stat-item.neutral {
             border-left-color: #8B5CF6;
+        }
+
+        .stat-item.follow-up {
+            border-left-color: #EC4899;
+        }
+
+        .stat-item.no-action {
+            border-left-color: #8B5CF6;
+        }
+
+        .stat-item.sold {
+            border-left-color: #059669;
+        }
+
+        .stat-item.existing-client {
+            border-left-color: #10B981;
+        }
+
+        .stat-item.invalid {
+            border-left-color: #6B7280;
+        }
+
+        .stat-item.pending {
+            border-left-color: #94A3B8;
         }
 
         .stat-label {
@@ -339,6 +363,127 @@
             border-color: #8B5CF6;
         }
 
+        .filter-btn.sold.active {
+            background: #059669;
+            border-color: #059669;
+        }
+
+        .filter-btn.other.active {
+            background: #6B7280;
+            border-color: #6B7280;
+        }
+
+        .filter-btn.follow-up.active {
+            background: #EC4899;
+            border-color: #EC4899;
+        }
+
+        .filter-btn.no-action.active {
+            background: #8B5CF6;
+            border-color: #8B5CF6;
+        }
+
+        .filter-btn.existing-client.active {
+            background: #10B981;
+            border-color: #10B981;
+        }
+
+        .filter-btn.invalid.active {
+            background: #6B7280;
+            border-color: #6B7280;
+        }
+
+        .filter-btn.pending.active {
+            background: #94A3B8;
+            border-color: #94A3B8;
+        }
+
+        .response-card.sold {
+            border-left-color: #059669;
+        }
+
+        .response-category.sold {
+            background: #059669;
+            color: white;
+        }
+
+        .stat-item.sold {
+            border-left-color: #059669;
+        }
+
+        .response-card.pipelined {
+            border-left-color: #F59E0B;
+        }
+
+        .response-category.pipelined {
+            background: #F59E0B;
+            color: white;
+        }
+
+        .response-card.engaged {
+            border-left-color: #3B82F6;
+        }
+
+        .response-category.engaged {
+            background: #3B82F6;
+            color: white;
+        }
+
+        .response-card.follow-up {
+            border-left-color: #EC4899;
+        }
+
+        .response-category.follow-up {
+            background: #EC4899;
+            color: white;
+        }
+
+        .response-card.existing-client {
+            border-left-color: #10B981;
+        }
+
+        .response-category.existing-client {
+            background: #10B981;
+            color: white;
+        }
+
+        .response-card.invalid {
+            border-left-color: #6B7280;
+        }
+
+        .response-category.invalid {
+            background: #6B7280;
+            color: white;
+        }
+
+        .response-card.no-action {
+            border-left-color: #8B5CF6;
+            border-left-color: #8B5CF6;
+        }
+
+        .response-category.no-action {
+            background: #8B5CF6;
+            color: white;
+        }
+
+        .response-card.not-interested {
+            border-left-color: #EF4444;
+        }
+
+        .response-category.not-interested {
+            background: #EF4444;
+            color: white;
+        }
+
+        .response-card.pending {
+            border-left-color: #94A3B8;
+        }
+
+        .response-category.pending {
+            background: #94A3B8;
+            color: white;
+        }
+
         @media (max-width: 768px) {
             .summary-section {
                 grid-template-columns: 1fr;
@@ -375,46 +520,75 @@
                 <div class="chart-card">
                     <h2>Response Statistics</h2>
                     <div class="stats-grid">
+                        <div class="stat-item hot-lead">
+                            <div class="stat-label">Hot Lead – Meeting</div>
+                            <div class="stat-value">2 <span class="stat-percentage">(8.7%)</span></div>
+                        </div>
                         <div class="stat-item negative">
-                            <div class="stat-label">Negative/Unsubscribe</div>
-                            <div class="stat-value">9 <span class="stat-percentage">(45%)</span></div>
+                            <div class="stat-label">Not Interested</div>
+                            <div class="stat-value">8 <span class="stat-percentage">(34.8%)</span></div>
                         </div>
                         <div class="stat-item interested">
-                            <div class="stat-label">Interested/Engaged</div>
-                            <div class="stat-value">3 <span class="stat-percentage">(15%)</span></div>
-                        </div>
-                        <div class="stat-item hot-lead">
-                            <div class="stat-label">Hot Lead/Meeting</div>
-                            <div class="stat-value">2 <span class="stat-percentage">(10%)</span></div>
+                            <div class="stat-label">Pipelined / Circle Back</div>
+                            <div class="stat-value">2 <span class="stat-percentage">(8.7%)</span></div>
                         </div>
                         <div class="stat-item neutral">
-                            <div class="stat-label">Neutral/Acknowledgment</div>
-                            <div class="stat-value">6 <span class="stat-percentage">(30%)</span></div>
+                            <div class="stat-label">Engaged – Interested</div>
+                            <div class="stat-value">2 <span class="stat-percentage">(8.7%)</span></div>
+                        </div>
+                        <div class="stat-item follow-up">
+                            <div class="stat-label">Follow-Up Needed</div>
+                            <div class="stat-value">2 <span class="stat-percentage">(8.7%)</span></div>
+                        </div>
+                        <div class="stat-item no-action">
+                            <div class="stat-label">No Action Needed</div>
+                            <div class="stat-value">2 <span class="stat-percentage">(8.7%)</span></div>
+                        </div>
+                        <div class="stat-item sold">
+                            <div class="stat-label">Sold</div>
+                            <div class="stat-value">1 <span class="stat-percentage">(4.3%)</span></div>
+                        </div>
+                        <div class="stat-item existing-client">
+                            <div class="stat-label">Existing Client</div>
+                            <div class="stat-value">1 <span class="stat-percentage">(4.3%)</span></div>
+                        </div>
+                        <div class="stat-item invalid">
+                            <div class="stat-label">Invalid / Wrong Contact</div>
+                            <div class="stat-value">1 <span class="stat-percentage">(4.3%)</span></div>
+                        </div>
+                        <div class="stat-item pending">
+                            <div class="stat-label">Pending Review</div>
+                            <div class="stat-value">2 <span class="stat-percentage">(8.7%)</span></div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="responses-section">
-                <h2>All Responses (20)</h2>
+                <h2>All Responses (23)</h2>
 
                 <div class="filter-buttons">
-                    <button class="filter-btn all active" onclick="filterResponses('all')">All (20)</button>
-                    <button class="filter-btn negative" onclick="filterResponses('negative')">Negative (9)</button>
+                    <button class="filter-btn all active" onclick="filterResponses('all')">All (23)</button>
                     <button class="filter-btn hot-lead" onclick="filterResponses('hot-lead')">Hot Lead (2)</button>
-                    <button class="filter-btn interested" onclick="filterResponses('interested')">Interested (3)</button>
-                    <button class="filter-btn neutral" onclick="filterResponses('neutral')">Neutral (6)</button>
+                    <button class="filter-btn negative" onclick="filterResponses('not-interested')">Not Interested (8)</button>
+                    <button class="filter-btn interested" onclick="filterResponses('pipelined')">Pipelined (2)</button>
+                    <button class="filter-btn neutral" onclick="filterResponses('engaged')">Engaged (2)</button>
+                    <button class="filter-btn follow-up" onclick="filterResponses('follow-up')">Follow-Up (2)</button>
+                    <button class="filter-btn no-action" onclick="filterResponses('no-action')">No Action (2)</button>
+                    <button class="filter-btn sold" onclick="filterResponses('sold')">Sold (1)</button>
+                    <button class="filter-btn existing-client" onclick="filterResponses('existing-client')">Existing Client (1)</button>
+                    <button class="filter-btn invalid" onclick="filterResponses('invalid')">Invalid (1)</button>
+                    <button class="filter-btn pending" onclick="filterResponses('pending')">Pending (2)</button>
                 </div>
 
                 <div id="responsesContainer">
-                    <!-- Hot Leads -->
                     <div class="response-card hot-lead" data-category="hot-lead">
                         <div class="response-header">
                             <div>
-                                <div class="response-who">Tia</div>
-                                <div class="response-email">tia.black@rootport.com</div>
+                                <div class="response-who">Angela</div>
+                                <div class="response-email">angela@sandadrivingacademyllc.com</div>
                             </div>
-                            <div class="response-category hot-lead">Hot Lead/Meeting</div>
+                            <div class="response-category hot-lead">Hot Lead – Meeting Scheduled</div>
                         </div>
                         <div class="response-details">
                             <div class="response-detail-item">
@@ -427,10 +601,326 @@
                             </div>
                         </div>
                         <div class="response-message">
-                            "Let's set a time to chat."
+                            "Hello Andrea, thank you again for the follow up and I appreciate the opportunity and will keep the information as we move forward with future growth and require the added support 
+
+The best to your team as well !"
                         </div>
-                        <div class="action-taken">
+                        <div class="action-taken ">
                             Action Taken: In contact with the client (Izzy)
+                        </div>
+                    </div>
+
+                    <div class="response-card no-action" data-category="no-action">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">Jeremy</div>
+                                <div class="response-email">jeremy@daltondrivingacademy.com</div>
+                            </div>
+                            <div class="response-category no-action">No Action Needed</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">TF Past Leads Driving School - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Last note from me</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            "We sold the business. 
+
+Tracie"
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: Unavailable
+                        </div>
+                    </div>
+
+                    <div class="response-card engaged" data-category="engaged">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">Ray</div>
+                                <div class="response-email">rarias@ariasis.com</div>
+                            </div>
+                            <div class="response-category engaged">Engaged – Interested</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">TF Past Leads General - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Closing the loop: TeamFicient + your 2026 initiatives</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            "Hello Andrea, We have been out of contact and I should let you know that I have partially retired from the company. Mostly just doing a bit of record keeping and account maintenance but not looking for new activities. I do not see a need for your services but surly keep you in mind if things change or if I see a fit as a reference."
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: In contact with the client (Izzy)
+                        </div>
+                    </div>
+
+                    <div class="response-card follow-up" data-category="follow-up">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">Crystal</div>
+                                <div class="response-email">CMartinez@lisc.org</div>
+                            </div>
+                            <div class="response-category follow-up">Follow-Up Needed</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">TF Past Leads General - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Closing the loop: TeamFicient + your 2026 initiatives</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            "Thank you for your email. I am not interested in services at this time. I will reach out if it’s a good fit in the future. Thanks!"
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: Thank You email was send
+                        </div>
+                    </div>
+
+                    <div class="response-card not-interested" data-category="not-interested">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">Mark</div>
+                                <div class="response-email">strategiclever@gmail.com</div>
+                            </div>
+                            <div class="response-category not-interested">Not Interested</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">TF Past Leads General - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Closing the loop: TeamFicient + your 2026 initiatives</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            "Remove me from your list."
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: Unsubscribed
+                        </div>
+                    </div>
+
+                    <div class="response-card pipelined" data-category="pipelined">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">TIa</div>
+                                <div class="response-email">tia.black@rootport.com</div>
+                            </div>
+                            <div class="response-category pipelined">Pipelined / Circle Back</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">TF Past Leads General - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Closing the loop: TeamFicient + your 2026 initiatives</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            "Let’s set a time to chat."
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: The client was contacted but refused services for now.
+                        </div>
+                    </div>
+
+                    <div class="response-card pipelined" data-category="pipelined">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">Ross</div>
+                                <div class="response-email">ross.munro@dexterra.com</div>
+                            </div>
+                            <div class="response-category pipelined">Pipelined / Circle Back</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">TF Past Leads General - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Closing the loop: TeamFicient + your 2026 initiatives</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            "Circle back after 6 months"
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: Contact Again in 6 Months
+                        </div>
+                    </div>
+
+                    <div class="response-card existing-client" data-category="existing-client">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">Paul</div>
+                                <div class="response-email">paul.rottler@decisivedriver.com</div>
+                            </div>
+                            <div class="response-category existing-client">Existing Client</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">TF Past Leads General - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Closing the loop: TeamFicient + your 2026 initiatives</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            "Take him out since he is an existing client"
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: Existing Client, no action needed
+                        </div>
+                    </div>
+
+                    <div class="response-card not-interested" data-category="not-interested">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">Nathalea</div>
+                                <div class="response-email">horizonsdriving@gmail.com</div>
+                            </div>
+                            <div class="response-category not-interested">Not Interested</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">NEW Leads Driving School - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Driving School Operations</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            "We are not interested. Thank you."
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: Thank You email was send
+                        </div>
+                    </div>
+
+                    <div class="response-card not-interested" data-category="not-interested">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">Jhonny</div>
+                                <div class="response-email">JRDSTopeka@gmail.com</div>
+                            </div>
+                            <div class="response-category not-interested">Not Interested</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">NEW Leads Driving School - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Jhonny, quick question</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            "Thanks for reaching out. We handle all of that ourselves. "
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: Thank You email was send
+                        </div>
+                    </div>
+
+                    <div class="response-card not-interested" data-category="not-interested">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">Wasiim</div>
+                                <div class="response-email">wassim@a-zdrivingschool.com</div>
+                            </div>
+                            <div class="response-category not-interested">Not Interested</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">NEW Leads Driving School - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Driving School Operations</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            "Thank you we are not interested."
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: Thank You email was send
+                        </div>
+                    </div>
+
+                    <div class="response-card engaged" data-category="engaged">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">Melissa</div>
+                                <div class="response-email">mguerra@24hourdrivingschoolmiami.com</div>
+                            </div>
+                            <div class="response-category engaged">Engaged – Interested</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">NEW Leads Driving School - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Driving School Operations</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            "Hi how much does it cost?"
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: In contact with her (Izzy)
+                        </div>
+                    </div>
+
+                    <div class="response-card not-interested" data-category="not-interested">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">Johnny</div>
+                                <div class="response-email">JRDSTopeka@gmail.com</div>
+                            </div>
+                            <div class="response-category not-interested">Not Interested</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">NEW Leads Driving School - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Driving School Operations</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            "Thank you for reaching out. We take care of our schools. "
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: Thank You email was send
                         </div>
                     </div>
 
@@ -440,7 +930,7 @@
                                 <div class="response-who">Nick</div>
                                 <div class="response-email">nick.davies@vertals.com</div>
                             </div>
-                            <div class="response-category hot-lead">Hot Lead/Meeting</div>
+                            <div class="response-category hot-lead">Hot Lead – Meeting Scheduled</div>
                         </div>
                         <div class="response-details">
                             <div class="response-detail-item">
@@ -460,171 +950,13 @@
                         </div>
                     </div>
 
-                    <!-- Interested/Engaged -->
-                    <div class="response-card interested" data-category="interested">
-                        <div class="response-header">
-                            <div>
-                                <div class="response-who">Angela</div>
-                                <div class="response-email">angela@sandadrivingacademyllc.com</div>
-                            </div>
-                            <div class="response-category interested">Interested/Engaged</div>
-                        </div>
-                        <div class="response-details">
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Campaign:</span>
-                                <span class="response-detail-value">TF Past Leads General - Email Drip Sequence</span>
-                            </div>
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Subject:</span>
-                                <span class="response-detail-value">Closing the loop: TeamFicient + your 2026 initiatives</span>
-                            </div>
-                        </div>
-                        <div class="response-message">
-                            "Hello Andrea, thank you again for the follow up and I appreciate the opportunity and will keep the information as we move forward with future growth and require the added support. The best to your team as well!"
-                        </div>
-                        <div class="action-taken">
-                            Action Taken: In contact with the client (Izzy)
-                        </div>
-                    </div>
-
-                    <div class="response-card interested" data-category="interested">
-                        <div class="response-header">
-                            <div>
-                                <div class="response-who">Ross</div>
-                                <div class="response-email">ross.munro@dexterra.com</div>
-                            </div>
-                            <div class="response-category interested">Interested/Engaged</div>
-                        </div>
-                        <div class="response-details">
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Campaign:</span>
-                                <span class="response-detail-value">TF Past Leads General - Email Drip Sequence</span>
-                            </div>
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Subject:</span>
-                                <span class="response-detail-value">Closing the loop: TeamFicient + your 2026 initiatives</span>
-                            </div>
-                        </div>
-                        <div class="response-message">
-                            "Circle back after 6 months"
-                        </div>
-                        <div class="action-taken">
-                            Action Taken: Contact Again in 6 Months
-                        </div>
-                    </div>
-
-                    <div class="response-card interested" data-category="interested">
-                        <div class="response-header">
-                            <div>
-                                <div class="response-who">Melissa</div>
-                                <div class="response-email">mguerra@24hourdrivingschoolmiami.com</div>
-                            </div>
-                            <div class="response-category interested">Interested/Engaged</div>
-                        </div>
-                        <div class="response-details">
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Campaign:</span>
-                                <span class="response-detail-value">NEW Leads Driving School - Email Drip Sequence</span>
-                            </div>
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Subject:</span>
-                                <span class="response-detail-value">Driving School Operations</span>
-                            </div>
-                        </div>
-                        <div class="response-message">
-                            "Hi how much does it cost?"
-                        </div>
-                        <div class="action-taken">
-                            Action Taken: In contact with her (Izzy)
-                        </div>
-                    </div>
-
-                    <!-- Neutral/Acknowledgment -->
-                    <div class="response-card neutral" data-category="neutral">
-                        <div class="response-header">
-                            <div>
-                                <div class="response-who">Jeremy</div>
-                                <div class="response-email">jeremy@daltondrivingacademy.com</div>
-                            </div>
-                            <div class="response-category neutral">Neutral/Acknowledgment</div>
-                        </div>
-                        <div class="response-details">
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Campaign:</span>
-                                <span class="response-detail-value">TF Past Leads Driving School - Email Drip Sequence</span>
-                            </div>
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Subject:</span>
-                                <span class="response-detail-value">Last note from me</span>
-                            </div>
-                        </div>
-                        <div class="response-message">
-                            "We sold the business. - Tracie"
-                        </div>
-                        <div class="action-taken">
-                            Action Taken: Unavailable
-                        </div>
-                    </div>
-
-                    <div class="response-card neutral" data-category="neutral">
-                        <div class="response-header">
-                            <div>
-                                <div class="response-who">Ray</div>
-                                <div class="response-email">rarias@ariasis.com</div>
-                            </div>
-                            <div class="response-category neutral">Neutral/Acknowledgment</div>
-                        </div>
-                        <div class="response-details">
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Campaign:</span>
-                                <span class="response-detail-value">TF Past Leads General - Email Drip Sequence</span>
-                            </div>
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Subject:</span>
-                                <span class="response-detail-value">Closing the loop: TeamFicient + your 2026 initiatives</span>
-                            </div>
-                        </div>
-                        <div class="response-message">
-                            "Hello Andrea, We have been out of contact and I should let you know that I have partially retired from the company. Mostly just doing a bit of record keeping and account maintenance but not looking for new activities. I do not see a need for your services but surly keep you in mind if things change or if I see a fit as a reference."
-                        </div>
-                        <div class="action-taken">
-                            Action Taken: In contact with the client (Izzy)
-                        </div>
-                    </div>
-
-                    <div class="response-card neutral" data-category="neutral">
-                        <div class="response-header">
-                            <div>
-                                <div class="response-who">Paul</div>
-                                <div class="response-email">paul.rottler@decisivedriver.com</div>
-                            </div>
-                            <div class="response-category neutral">Neutral/Acknowledgment</div>
-                        </div>
-                        <div class="response-details">
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Campaign:</span>
-                                <span class="response-detail-value">TF Past Leads General - Email Drip Sequence</span>
-                            </div>
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Subject:</span>
-                                <span class="response-detail-value">Closing the loop: TeamFicient + your 2026 initiatives</span>
-                            </div>
-                        </div>
-                        <div class="response-message">
-                            "Take him out since he is an existing client"
-                        </div>
-                        <div class="action-taken">
-                            Action Taken: Existing Client, no action needed
-                        </div>
-                    </div>
-
-                    <div class="response-card neutral" data-category="neutral">
+                    <div class="response-card invalid" data-category="invalid">
                         <div class="response-header">
                             <div>
                                 <div class="response-who">Morgan</div>
                                 <div class="response-email">given@chicagodivorceatty.com</div>
                             </div>
-                            <div class="response-category neutral">Neutral/Acknowledgment</div>
+                            <div class="response-category invalid">Invalid / Wrong Contact</div>
                         </div>
                         <div class="response-details">
                             <div class="response-detail-item">
@@ -637,20 +969,20 @@
                             </div>
                         </div>
                         <div class="response-message">
-                            "Please note my email address has changed to given@taradashgiven.com. Your message will be forwarded to this address. Please direct future correspondence to given@taradashgiven.com. Thank you."
+                            "Please note my email address has changed to given@taradashgiven.com. Your message will be forwarded to this address. Please direct future correspondence to given@taradashgiven.com. Thank you."
                         </div>
-                        <div class="action-taken">
+                        <div class="action-taken ">
                             Action Taken: The mail of the contact has been Updated
                         </div>
                     </div>
 
-                    <div class="response-card neutral" data-category="neutral">
+                    <div class="response-card no-action" data-category="no-action">
                         <div class="response-header">
                             <div>
                                 <div class="response-who">Anita</div>
                                 <div class="response-email">anitha@cube-hub.com</div>
                             </div>
-                            <div class="response-category neutral">Neutral/Acknowledgment</div>
+                            <div class="response-category no-action">No Action Needed</div>
                         </div>
                         <div class="response-details">
                             <div class="response-detail-item">
@@ -665,201 +997,18 @@
                         <div class="response-message">
                             "Noted"
                         </div>
-                        <div class="action-taken">
+                        <div class="action-taken ">
                             Action Taken: Thank You email was send
                         </div>
                     </div>
 
-                    <div class="response-card neutral" data-category="neutral">
-                        <div class="response-header">
-                            <div>
-                                <div class="response-who">Michael</div>
-                                <div class="response-email">michael.benza@everestgrp.com</div>
-                            </div>
-                            <div class="response-category neutral">Neutral/Acknowledgment</div>
-                        </div>
-                        <div class="response-details">
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Campaign:</span>
-                                <span class="response-detail-value">NEW Leads General - Email Drip Sequence</span>
-                            </div>
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Subject:</span>
-                                <span class="response-detail-value">Michael, quick question</span>
-                            </div>
-                        </div>
-                        <div class="response-message">
-                            "I am out of the office currently. Please expect a delay in my response."
-                        </div>
-                        <div class="action-taken">
-                            Action Taken: Continued the Email Campaign
-                        </div>
-                    </div>
-
-                    <!-- Negative/Unsubscribe -->
-                    <div class="response-card negative" data-category="negative">
-                        <div class="response-header">
-                            <div>
-                                <div class="response-who">Crystal</div>
-                                <div class="response-email">CMartinez@lisc.org</div>
-                            </div>
-                            <div class="response-category negative">Negative/Unsubscribe</div>
-                        </div>
-                        <div class="response-details">
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Campaign:</span>
-                                <span class="response-detail-value">TF Past Leads General - Email Drip Sequence</span>
-                            </div>
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Subject:</span>
-                                <span class="response-detail-value">Closing the loop: TeamFicient + your 2026 initiatives</span>
-                            </div>
-                        </div>
-                        <div class="response-message">
-                            "Thank you for your email. I am not interested in services at this time. I will reach out if it's a good fit in the future. Thanks!"
-                        </div>
-                        <div class="action-taken">
-                            Action Taken: Thank You email was send
-                        </div>
-                    </div>
-
-                    <div class="response-card negative" data-category="negative">
-                        <div class="response-header">
-                            <div>
-                                <div class="response-who">Mark</div>
-                                <div class="response-email">strategiclever@gmail.com</div>
-                            </div>
-                            <div class="response-category negative">Negative/Unsubscribe</div>
-                        </div>
-                        <div class="response-details">
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Campaign:</span>
-                                <span class="response-detail-value">TF Past Leads General - Email Drip Sequence</span>
-                            </div>
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Subject:</span>
-                                <span class="response-detail-value">Closing the loop: TeamFicient + your 2026 initiatives</span>
-                            </div>
-                        </div>
-                        <div class="response-message">
-                            "Remove me from your list."
-                        </div>
-                        <div class="action-taken">
-                            Action Taken: Unsubscribed
-                        </div>
-                    </div>
-
-                    <div class="response-card negative" data-category="negative">
-                        <div class="response-header">
-                            <div>
-                                <div class="response-who">Nathalea</div>
-                                <div class="response-email">horizonsdriving@gmail.com</div>
-                            </div>
-                            <div class="response-category negative">Negative/Unsubscribe</div>
-                        </div>
-                        <div class="response-details">
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Campaign:</span>
-                                <span class="response-detail-value">NEW Leads Driving School - Email Drip Sequence</span>
-                            </div>
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Subject:</span>
-                                <span class="response-detail-value">Driving School Operations</span>
-                            </div>
-                        </div>
-                        <div class="response-message">
-                            "We are not interested. Thank you."
-                        </div>
-                        <div class="action-taken">
-                            Action Taken: Thank You email was send
-                        </div>
-                    </div>
-
-                    <div class="response-card negative" data-category="negative">
-                        <div class="response-header">
-                            <div>
-                                <div class="response-who">Jhonny</div>
-                                <div class="response-email">JRDSTopeka@gmail.com</div>
-                            </div>
-                            <div class="response-category negative">Negative/Unsubscribe</div>
-                        </div>
-                        <div class="response-details">
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Campaign:</span>
-                                <span class="response-detail-value">NEW Leads Driving School - Email Drip Sequence</span>
-                            </div>
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Subject:</span>
-                                <span class="response-detail-value">Jhonny, quick question</span>
-                            </div>
-                        </div>
-                        <div class="response-message">
-                            "Thanks for reaching out. We handle all of that ourselves."
-                        </div>
-                        <div class="action-taken">
-                            Action Taken: Thank You email was send
-                        </div>
-                    </div>
-
-                    <div class="response-card negative" data-category="negative">
-                        <div class="response-header">
-                            <div>
-                                <div class="response-who">Wasiim</div>
-                                <div class="response-email">wassim@a-zdrivingschool.com</div>
-                            </div>
-                            <div class="response-category negative">Negative/Unsubscribe</div>
-                        </div>
-                        <div class="response-details">
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Campaign:</span>
-                                <span class="response-detail-value">NEW Leads Driving School - Email Drip Sequence</span>
-                            </div>
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Subject:</span>
-                                <span class="response-detail-value">Driving School Operations</span>
-                            </div>
-                        </div>
-                        <div class="response-message">
-                            "Thank you we are not interested."
-                        </div>
-                        <div class="action-taken">
-                            Action Taken: Thank You email was send
-                        </div>
-                    </div>
-
-                    <div class="response-card negative" data-category="negative">
-                        <div class="response-header">
-                            <div>
-                                <div class="response-who">Johnny</div>
-                                <div class="response-email">JRDSTopeka@gmail.com</div>
-                            </div>
-                            <div class="response-category negative">Negative/Unsubscribe</div>
-                        </div>
-                        <div class="response-details">
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Campaign:</span>
-                                <span class="response-detail-value">NEW Leads Driving School - Email Drip Sequence</span>
-                            </div>
-                            <div class="response-detail-item">
-                                <span class="response-detail-label">Subject:</span>
-                                <span class="response-detail-value">Driving School Operations</span>
-                            </div>
-                        </div>
-                        <div class="response-message">
-                            "Thank you for reaching out. We take care of our schools."
-                        </div>
-                        <div class="action-taken">
-                            Action Taken: Thank You email was send
-                        </div>
-                    </div>
-
-                    <div class="response-card negative" data-category="negative">
+                    <div class="response-card not-interested" data-category="not-interested">
                         <div class="response-header">
                             <div>
                                 <div class="response-who">Nicki</div>
                                 <div class="response-email">n.batton@weaverpartners.com</div>
                             </div>
-                            <div class="response-category negative">Negative/Unsubscribe</div>
+                            <div class="response-category not-interested">Not Interested</div>
                         </div>
                         <div class="response-details">
                             <div class="response-detail-item">
@@ -872,20 +1021,20 @@
                             </div>
                         </div>
                         <div class="response-message">
-                            "No thank you."
+                            "No thank you. "
                         </div>
-                        <div class="action-taken">
+                        <div class="action-taken ">
                             Action Taken: Unsubscribed
                         </div>
                     </div>
 
-                    <div class="response-card negative" data-category="negative">
+                    <div class="response-card not-interested" data-category="not-interested">
                         <div class="response-header">
                             <div>
                                 <div class="response-who">Wendy</div>
                                 <div class="response-email">wscohen@powerhouseadvisors.com</div>
                             </div>
-                            <div class="response-category negative">Negative/Unsubscribe</div>
+                            <div class="response-category not-interested">Not Interested</div>
                         </div>
                         <div class="response-details">
                             <div class="response-detail-item">
@@ -900,18 +1049,18 @@
                         <div class="response-message">
                             "Not interested."
                         </div>
-                        <div class="action-taken">
+                        <div class="action-taken ">
                             Action Taken: Thank You email was send
                         </div>
                     </div>
 
-                    <div class="response-card negative" data-category="negative">
+                    <div class="response-card not-interested" data-category="not-interested">
                         <div class="response-header">
                             <div>
                                 <div class="response-who">Jim</div>
                                 <div class="response-email">jm@egretconsulting.com</div>
                             </div>
-                            <div class="response-category negative">Negative/Unsubscribe</div>
+                            <div class="response-category not-interested">Not Interested</div>
                         </div>
                         <div class="response-details">
                             <div class="response-detail-item">
@@ -926,8 +1075,112 @@
                         <div class="response-message">
                             "No thank you"
                         </div>
-                        <div class="action-taken">
+                        <div class="action-taken ">
                             Action Taken: Unsubscribed
+                        </div>
+                    </div>
+
+                    <div class="response-card follow-up" data-category="follow-up">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">Michael</div>
+                                <div class="response-email">michael.benza@everestgrp.com</div>
+                            </div>
+                            <div class="response-category follow-up">Follow-Up Needed</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">NEW Leads General - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Michael, quick question</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            "I am out of the office currently. Please expect a delay in my response."
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: Continued the Email Campaign
+                        </div>
+                    </div>
+
+                    <div class="response-card sold" data-category="sold">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">Jeremy Cain</div>
+                                <div class="response-email">jcain@crashcoursewi.com</div>
+                            </div>
+                            <div class="response-category sold">Sold</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">TF Past Leads General - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Reconnecting: Optimizing your operations</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            ""Convert into a Client""
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: This lead was completed as a manual email campaign.
+                        </div>
+                    </div>
+
+                    <div class="response-card pending" data-category="pending">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">Kenny</div>
+                                <div class="response-email">kennyc@karlstransport.com</div>
+                            </div>
+                            <div class="response-category pending">Pending Review</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">NEW Leads General - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Should I Close this?</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            " I am currently out of the office My schedule is Monday,Tuesday and Wednesday. If you need any assistance you can email bholbrook@karlstransport.com or jguile@karlstransport.com If its an emergency call my cell 715-219-1023 "
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: Contact Again in Schedule Hours
+                        </div>
+                    </div>
+
+                    <div class="response-card pending" data-category="pending">
+                        <div class="response-header">
+                            <div>
+                                <div class="response-who">Maribeth</div>
+                                <div class="response-email">michigandrivingschool@gmail.com</div>
+                            </div>
+                            <div class="response-category pending">Pending Review</div>
+                        </div>
+                        <div class="response-details">
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Campaign:</span>
+                                <span class="response-detail-value">TF Past Leads Driving School - Email Drip Sequence</span>
+                            </div>
+                            <div class="response-detail-item">
+                                <span class="response-detail-label">Subject:</span>
+                                <span class="response-detail-value">Late Reply</span>
+                            </div>
+                        </div>
+                        <div class="response-message">
+                            "Hello Andrea, I apologize for the delayed response time. We have been in the middle of a software transfer. Let me know your availability in the coming weeks. "
+                        </div>
+                        <div class="action-taken ">
+                            Action Taken: In contact with her
                         </div>
                     </div>
                 </div>
@@ -941,14 +1194,18 @@
         new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ['Negative/Unsubscribe', 'Interested/Engaged', 'Hot Lead/Meeting', 'Neutral/Acknowledgment'],
+                labels: ['Not Interested', 'Hot Lead', 'Pipelined/Circle Back', 'Engaged/Interested', 'Follow-Up', 'No Action', 'Sold', 'Other'],
                 datasets: [{
-                    data: [9, 3, 2, 6],
+                    data: [8, 2, 2, 2, 2, 2, 1, 4],
                     backgroundColor: [
                         '#EF4444',
-                        '#3B82F6',
                         '#10B981',
-                        '#8B5CF6'
+                        '#F59E0B',
+                        '#3B82F6',
+                        '#EC4899',
+                        '#8B5CF6',
+                        '#059669',
+                        '#6B7280'
                     ],
                     borderWidth: 0
                 }]
