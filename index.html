@@ -450,20 +450,20 @@
                 </div>
                 <div class="response-stats">
                     <div class="stat-item negative">
-                        <div class="stat-label">Negative/Unsubscribe</div>
-                        <div class="stat-value">9 <span class="stat-percentage">(45%)</span></div>
+                        <div class="stat-label">Negative/Not Interested</div>
+                        <div class="stat-value">11 <span class="stat-percentage">(42%)</span></div>
                     </div>
                     <div class="stat-item interested">
                         <div class="stat-label">Interested/Engaged</div>
-                        <div class="stat-value">3 <span class="stat-percentage">(15%)</span></div>
+                        <div class="stat-value">3 <span class="stat-percentage">(12%)</span></div>
                     </div>
                     <div class="stat-item hot-lead">
-                        <div class="stat-label">Hot Lead/Meeting</div>
-                        <div class="stat-value">2 <span class="stat-percentage">(10%)</span></div>
+                        <div class="stat-label">Hot Lead/Meeting/Sold</div>
+                        <div class="stat-value">3 <span class="stat-percentage">(12%)</span></div>
                     </div>
                     <div class="stat-item neutral">
-                        <div class="stat-label">Neutral/Acknowledgment</div>
-                        <div class="stat-value">6 <span class="stat-percentage">(30%)</span></div>
+                        <div class="stat-label">Neutral/Other</div>
+                        <div class="stat-value">9 <span class="stat-percentage">(35%)</span></div>
                     </div>
                 </div>
             </div>
@@ -471,25 +471,34 @@
     </div>
 
     <script>
-        // Embedded data from Excel - Last updated: 2026-03-27
+        // Embedded data from Excel - Last updated: 2026-03-30
         const allData = [
-            {"date": "2026-02-24", "industry": "Driving", "campaign": "Past Leads - Driving Schools", "leads": 49, "opened": 17, "clicked": 0, "replied": 0, "delivered": 43, "openRate": 0.3953},
-            {"date": "2026-02-24", "industry": "Healthcare", "campaign": "Past Leads - Healthcare", "leads": 9, "opened": 1, "clicked": 0, "replied": 0, "delivered": 8, "openRate": 0.125},
-            {"date": "2026-02-24", "industry": "General", "campaign": "Past Leads - General", "leads": 71, "opened": 45, "clicked": 2, "replied": 8, "delivered": 71, "openRate": 0.6338},
-            {"date": "2026-02-25", "industry": "Driving", "campaign": "Past Leads - Driving Schools", "leads": 6, "opened": 1, "clicked": 0, "replied": 0, "delivered": 6, "openRate": 0.1667},
-            {"date": "2026-02-25", "industry": "Healthcare", "campaign": "Past Leads - Healthcare", "leads": 3, "opened": 1, "clicked": 0, "replied": 0, "delivered": 3, "openRate": 0.3333},
-            {"date": "2026-02-25", "industry": "General", "campaign": "Past Leads - General", "leads": 19, "opened": 12, "clicked": 3, "replied": 0, "delivered": 18, "openRate": 0.6667},
-            {"date": "2026-02-27", "industry": "Driving", "campaign": "Past Leads - Driving Schools", "leads": 81, "opened": 28, "clicked": 0, "replied": 2, "delivered": 81, "openRate": 0.3457},
-            {"date": "2026-02-27", "industry": "Healthcare", "campaign": "Past Leads - Healthcare", "leads": 29, "opened": 13, "clicked": 2, "replied": 0, "delivered": 29, "openRate": 0.4483},
-            {"date": "2026-02-27", "industry": "General", "campaign": "Past Leads - General", "leads": 211, "opened": 107, "clicked": 6, "replied": 0, "delivered": 211, "openRate": 0.5071},
-            {"date": "2026-03-11", "industry": "Driving School", "campaign": "NEW Leads - Driving School", "leads": 153, "opened": 207, "clicked": 28, "replied": 5, "delivered": 391, "openRate": 0.5294},
-            {"date": "2026-03-17", "industry": "General Services", "campaign": "NEW Leads - General", "leads": 200, "opened": 113, "clicked": 68, "replied": 5, "delivered": 173, "openRate": 0.6532},
-            {"date": "2026-03-18", "industry": "General Services", "campaign": "NEW Leads - General", "leads": 200, "opened": 63, "clicked": 19, "replied": 2, "delivered": 168, "openRate": 0.375},
-            {"date": "2026-03-20", "industry": "Financial Services", "campaign": "NEW Leads - Financial", "leads": 99, "opened": 71, "clicked": 42, "replied": 0, "delivered": 139, "openRate": 0.5108},
-            {"date": "2026-03-20", "industry": "Legal", "campaign": "NEW Leads - Legal", "leads": 104, "opened": 99, "clicked": 50, "replied": 1, "delivered": 190, "openRate": 0.5211},
-            {"date": "2026-03-25", "industry": "Marketing", "campaign": "NEW Leads - Marketing", "leads": 300, "opened": 102, "clicked": 37, "replied": 0, "delivered": 279, "openRate": 0.3656},
-            {"date": "2026-03-26", "industry": "IT Services", "campaign": "NEW Leads - IT Services", "leads": 443, "opened": 97, "clicked": 65, "replied": 0, "delivered": 383, "openRate": 0.2533}
+            {"date": "2026-02-24", "industry": "Driving", "campaign": "TF Past Leads Driving School - Email Drip Sequence", "leads": 49, "opened": 17, "clicked": 0, "replied": 0, "delivered": 43, "openRate": 0.3953},
+            {"date": "2026-02-24", "industry": "Healthcare", "campaign": "TF Past Leads Healthcare - Email Drip Sequence", "leads": 9, "opened": 1, "clicked": 0, "replied": 0, "delivered": 8, "openRate": 0.1250},
+            {"date": "2026-02-24", "industry": "General", "campaign": "TF Past Leads General - Email Drip Sequence", "leads": 71, "opened": 45, "clicked": 2, "replied": 6, "delivered": 71, "openRate": 0.6338},
+            {"date": "2026-02-25", "industry": "Driving", "campaign": "TF Past Leads Driving School - Email Drip Sequence", "leads": 6, "opened": 1, "clicked": 0, "replied": 0, "delivered": 6, "openRate": 0.1667},
+            {"date": "2026-02-25", "industry": "Healthcare", "campaign": "TF Past Leads Healthcare - Email Drip Sequence", "leads": 3, "opened": 1, "clicked": 0, "replied": 0, "delivered": 3, "openRate": 0.3333},
+            {"date": "2026-02-25", "industry": "General", "campaign": "TF Past Leads General - Email Drip Sequence", "leads": 19, "opened": 12, "clicked": 3, "replied": 0, "delivered": 18, "openRate": 0.6667},
+            {"date": "2026-02-27", "industry": "Driving", "campaign": "TF Past Leads Driving School - Email Drip Sequence", "leads": 81, "opened": 28, "clicked": 0, "replied": 2, "delivered": 81, "openRate": 0.3457},
+            {"date": "2026-02-27", "industry": "Healthcare", "campaign": "TF Past Leads Healthcare - Email Drip Sequence", "leads": 29, "opened": 13, "clicked": 2, "replied": 0, "delivered": 29, "openRate": 0.4483},
+            {"date": "2026-02-27", "industry": "General", "campaign": "TF Past Leads General - Email Drip Sequence", "leads": 211, "opened": 107, "clicked": 6, "replied": 0, "delivered": 211, "openRate": 0.5071},
+            {"date": "2026-03-11", "industry": "Driving School", "campaign": "NEW Leads Driving School - Email Drip Sequence", "leads": 153, "opened": 245, "clicked": 29, "replied": 5, "delivered": 531, "openRate": 0.5294},
+            {"date": "2026-03-17", "industry": "General Services", "campaign": "NEW Leads General - Email Drip Sequence", "leads": 200, "opened": 113, "clicked": 68, "replied": 4, "delivered": 173, "openRate": 0.6532},
+            {"date": "2026-03-18", "industry": "General Services", "campaign": "NEW Leads General - Email Drip Sequence", "leads": 200, "opened": 63, "clicked": 19, "replied": 3, "delivered": 168, "openRate": 0.3750},
+            {"date": "2026-03-20", "industry": "Financial Services", "campaign": "NEW Leads Financial - Email Drip Sequence", "leads": 99, "opened": 111, "clicked": 67, "replied": 0, "delivered": 298, "openRate": 0.5108},
+            {"date": "2026-03-20", "industry": "Legal", "campaign": "NEW Leads Legal - Email Drip Sequence", "leads": 104, "opened": 148, "clicked": 74, "replied": 1, "delivered": 324, "openRate": 0.5211},
+            {"date": "2026-03-25", "industry": "Marketing", "campaign": "NEW Leads Marketing - Email Drip Sequence", "leads": 300, "opened": 220, "clicked": 73, "replied": 1, "delivered": 554, "openRate": 0.3656},
+            {"date": "2026-03-26", "industry": "IT Services", "campaign": "NEW Leads IT Services - Email Drip Sequence", "leads": 443, "opened": 302, "clicked": 186, "replied": 1, "delivered": 792, "openRate": 0.2533}
         ];
+
+        // Replies data from TeamFicientReplies.xlsx - 26 total replies
+        const repliesData = {
+            negative: 11,      // Not Interested
+            interested: 3,     // Engaged/Interested
+            hotLead: 3,        // Hot Lead/Meeting Scheduled/Sold
+            neutral: 9,        // No Action Needed, Follow-Up, Pipelined, Existing Client, Invalid, etc.
+            total: 26
+        };
 
         let charts = {
             performance: null,
@@ -527,9 +536,9 @@
             charts.replies = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Negative/Unsubscribe', 'Interested/Engaged', 'Hot Lead/Meeting', 'Neutral/Acknowledgment'],
+                    labels: ['Negative/Not Interested', 'Interested/Engaged', 'Hot Lead/Meeting/Sold', 'Neutral/Other'],
                     datasets: [{
-                        data: [9, 3, 2, 6],
+                        data: [repliesData.negative, repliesData.interested, repliesData.hotLead, repliesData.neutral],
                         backgroundColor: [
                             '#2D2926',
                             '#003B5C',
@@ -586,7 +595,10 @@
             dates.forEach(date => {
                 const option = document.createElement('option');
                 option.value = date;
-                option.textContent = new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                // Parse date manually to avoid timezone issues
+                const [year, month, day] = date.split('-');
+                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                option.textContent = `${months[parseInt(month) - 1]} ${parseInt(day)}, ${year}`;
                 dateFilter.appendChild(option);
             });
 
@@ -620,7 +632,7 @@
             // Calculate KPIs
             const totalLeads = data.reduce((sum, row) => sum + row.leads, 0);
             const avgOpenRate = data.length > 0 ? (data.reduce((sum, row) => sum + row.openRate, 0) / data.length * 100).toFixed(1) : 0;
-            const totalReplied = data.reduce((sum, row) => sum + row.replied, 0);
+            const totalReplied = repliesData.total; // Use actual replies count from TeamFicientReplies
             const totalClicked = data.reduce((sum, row) => sum + row.clicked, 0);
 
             document.getElementById('totalLeads').textContent = totalLeads;
@@ -656,7 +668,12 @@
             charts.performance = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: dateData.map(d => new Date(d.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })),
+                    labels: dateData.map(d => {
+                        // Parse date manually to avoid timezone issues
+                        const [year, month, day] = d.date.split('-');
+                        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                        return `${months[parseInt(month) - 1]} ${parseInt(day)}`;
+                    }),
                     datasets: [
                         {
                             label: 'Leads Generated',
@@ -769,7 +786,7 @@
         function updateEngagementChart(data) {
             const totalOpened = data.reduce((sum, row) => sum + row.opened, 0);
             const totalClicked = data.reduce((sum, row) => sum + row.clicked, 0);
-            const totalReplied = data.reduce((sum, row) => sum + row.replied, 0);
+            const totalReplied = repliesData.total; // Use actual replies count from TeamFicientReplies
             const totalDelivered = data.reduce((sum, row) => sum + row.delivered, 0);
 
             const ctx = document.getElementById('engagementChart');
