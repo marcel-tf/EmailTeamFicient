@@ -278,7 +278,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>Response Analysis - 26 Total Replies</h1>
+            <h1>Response Analysis - 29 Total Replies</h1>
             <a href="index.html" class="back-btn">← Back to Dashboard</a>
         </header>
 
@@ -337,8 +337,8 @@
             <div class="filter-buttons">
                 <button class="filter-btn all active" onclick="filterResponses('all')">All (26)</button>
                 <button class="filter-btn hot-lead" onclick="filterResponses('hot-lead')">Hot Lead (2)</button>
-                <button class="filter-btn not-interested" onclick="filterResponses('not-interested')">Not Interested (11)</button>
-                <button class="filter-btn engaged" onclick="filterResponses('engaged')">Engaged (3)</button>
+                <button class="filter-btn not-interested" onclick="filterResponses('not-interested')">Not Interested (13)</button>
+                <button class="filter-btn engaged" onclick="filterResponses('engaged')">Engaged (4)</button>
                 <button class="filter-btn pipelined" onclick="filterResponses('pipelined')">Pipelined (3)</button>
             </div>
 
@@ -347,7 +347,7 @@
     </div>
 
     <script>
-        // Embedded data from TeamFicientReplies.xlsx - Last updated: 2026-03-30
+        // Embedded data from TeamFicientReplies.xlsx - Last updated: 2026-04-01
         const repliesData = [
             {"who": "Angela", "email": "angela@sandadrivingacademyllc.com", "message": "Hello Andrea, thank you again for the follow up and I appreciate the opportunity and will keep the information as we move forward with future growth and require the added support \n\nThe best to your team as well !", "actionTaken": "In contact with the client (Izzy)", "subject": "Closing the loop: TeamFicient + your 2026 initiatives", "campaign": "TF Past Leads General - Email Drip Sequence", "categoryClass": "hot-lead", "categoryDisplay": "Hot Lead – Meeting Scheduled"},
             {"who": "Jeremy", "email": "jeremy@daltondrivingacademy.com", "message": "We sold the business. \n\nTracie", "actionTaken": "Unavailable", "subject": "Last note from me", "campaign": "TF Past Leads Driving School - Email Drip Sequence", "categoryClass": "no-action", "categoryDisplay": "No Action Needed"},
@@ -374,7 +374,10 @@
             {"who": "Maribeth", "email": "michigandrivingschool@gmail.com", "message": "Hello Andrea, I apologize for the delayed response time. We have been in the middle of a software transfer. Let me know your availability in the coming weeks.", "actionTaken": "In contact with her", "subject": "Late Reply", "campaign": "TF Past Leads Driving School - Email Drip Sequence", "categoryClass": "engaged", "categoryDisplay": "Engaged – Interested"},
             {"who": "David", "email": "david.a.olthoff@ausgar.com", "message": "Thanks for the email, Andrea, but we wouldn't be interested at this time. Have a great week! Thanks!", "actionTaken": "Thank You email was send", "subject": "Following Up", "campaign": "NEW Leads IT Services - Email Drip Sequence", "categoryClass": "not-interested", "categoryDisplay": "Not Interested"},
             {"who": "Debra", "email": "deb@bevtest.com", "message": "Thanks but no need at this time.", "actionTaken": "Thank You email was send", "subject": "Following Up", "campaign": "NEW Leads Marketing - Email Drip Sequence", "categoryClass": "not-interested", "categoryDisplay": "Not Interested"},
-            {"who": "Rosalie", "email": "rosalie@tscp.jobs", "message": "Andrea, thank you but I am not interested at this time.", "actionTaken": "Thank You email was send", "subject": "Closing the loop: TeamFicient + your 2026 initiatives", "campaign": "NEW Leads General - Email Drip Sequence", "categoryClass": "not-interested", "categoryDisplay": "Not Interested"}
+            {"who": "Rosalie", "email": "rosalie@tscp.jobs", "message": "Andrea, thank you but I am not interested at this time.", "actionTaken": "Thank You email was send", "subject": "Closing the loop: TeamFicient + your 2026 initiatives", "campaign": "NEW Leads General - Email Drip Sequence", "categoryClass": "not-interested", "categoryDisplay": "Not Interested"},
+            {"who": "Ethan", "email": "egarratt@divinesignsinc.com", "message": "Not interested.", "actionTaken": "Thank You email was send", "subject": "Should I close this?", "campaign": "NEW Leads Marketing - Email Drip Sequence", "categoryClass": "not-interested", "categoryDisplay": "Not Interested"},
+            {"who": "Steve", "email": "smegel@foodmix.net", "message": "Hi Andrea, Yes, please close this. We don't have an interest at this time.", "actionTaken": "Thank You email was send", "subject": "Should I close this?", "campaign": "NEW Leads Marketing - Email Drip Sequence", "categoryClass": "not-interested", "categoryDisplay": "Not Interested"},
+            {"who": "Ed", "email": "ecorreia@sagacent.com", "message": "Yes, please!", "actionTaken": "Izzy will reply to the client and follow up", "subject": "Should I close this?", "campaign": "NEW Leads IT Services - Email Drip Sequence", "categoryClass": "engaged", "categoryDisplay": "Engaged – Interested"}
         ];
 
         let currentFilter = 'all';
@@ -436,9 +439,9 @@
             new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Not Interested (11)', 'Pipelined (3)', 'Engaged (3)', 'Hot Lead (2)', 'Follow-Up (2)', 'No Action (2)', 'Sold (1)', 'Existing Client (1)', 'Invalid (1)'],
+                    labels: ['Not Interested (13)', 'Engaged (4)', 'Pipelined (3)', 'Hot Lead (2)', 'Follow-Up (2)', 'No Action (2)', 'Sold (1)', 'Existing Client (1)', 'Invalid (1)'],
                     datasets: [{
-                        data: [11, 3, 3, 2, 2, 2, 1, 1, 1],
+                        data: [13, 4, 3, 2, 2, 2, 1, 1, 1],
                         backgroundColor: [
                             '#EF4444',
                             '#8B5CF6',
